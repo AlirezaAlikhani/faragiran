@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CourseRequest;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
         $inputs = $request->all();
         $course = Course::create($inputs);
@@ -38,9 +39,9 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Course $course)
     {
-        //
+        return view('course.show' , compact('course'));
     }
 
     /**
@@ -58,6 +59,7 @@ class CourseController extends Controller
     {
         $inputs = $request->all();
         $course->update($inputs);
+        dd($course);
         return to_route('courses.index');
     }
 

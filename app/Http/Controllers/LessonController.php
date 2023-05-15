@@ -31,12 +31,19 @@ class LessonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request , Course $course)
+    public function store(Request $request , Course $course , Lesson $lesson)
     {
-        $inputs = $request->all();
+//        $inputs = $request->all();
+//        $inputs['course_id'] = $course->id;
+//        $lesson = Lesson::create($inputs);
+//        return redirect()->route('courses.index', $course->id);
+
+        $lesson = new Lesson;
+        $lesson->name = $request['name'];
         $inputs['course_id'] = $course->id;
-        $lesson = Lesson::create($inputs);
-        return redirect()->route('courses.index', $course->id);
+        dd($inputs);
+        $lesson->save();
+
     }
 
     /**

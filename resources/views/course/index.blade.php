@@ -14,7 +14,7 @@
               class="border-b bg-white font-medium">
               <tr>
                 <th scope="col" class="px-6 py-4">#</th>
-                <th scope="col" class="px-6 py-4">Name Course</th>
+                <th scope="col" class="px-6 py-4">Course name</th>
                 <th scope="col" class="px-6 py-4">Price</th>
                 <th scope="col" class="px-6 py-4">creation date</th>
                 <th scope="col" class="px-6 py-4">Setting</th>
@@ -37,7 +37,7 @@
                               Add Lesson
                           </a>
 
-                          <a href="{{ route('courses.create') }}" class="bg-cyan-400 mr-2  hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded">
+                          <a href="{{ route('courses.show' , $course->id) }}" class="bg-cyan-400 mr-2  hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded">
                               Show
                           </a>
 
